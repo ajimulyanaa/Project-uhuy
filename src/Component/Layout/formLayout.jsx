@@ -11,10 +11,10 @@ function FormLayout({ children, name, footer }) {
           <h3 className='font-semibold font-slate-500 text-xl'>Please, enter your details</h3>
         </header>
         <form action=''>{children}</form>
-        <Button style='w-full bg-green-500 hover:bg-green-400 mt-4'>Login</Button>
+        <Button style='w-full bg-green-500 hover:bg-green-400 mt-4'>{name}</Button>
         <footer className='flex justify-center gap-2 mt-2'>
-          <h3>Dont have an account </h3>
-          <Link to={`/${footer}`} className='font-bold'>
+          <h3>{footer === 'Register' ? 'Dont have an account?' : 'Have an account?'}</h3>
+          <Link to={`/${footer}`} className='font-bold hover:text-slate-50 hover:duration-500 hover:shadow-slate-50'>
             {footer}
           </Link>
         </footer>
