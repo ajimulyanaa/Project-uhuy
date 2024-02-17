@@ -3,7 +3,7 @@ import InputForm from '../Component/Fragments/input';
 
 function LoginForm() {
   return (
-    <FormLayout name='Login'>
+    <FormLayout name='Login' footer='Register'>
       <InputForm name='email' placeholder='example@gmail.com' type='email'>
         Email
       </InputForm>

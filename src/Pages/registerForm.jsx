@@ -3,7 +3,7 @@ import InputForm from '../Component/Fragments/input';
 
 function RegisterForm() {
   return (
-    <FormLayout name='Register'>
+    <FormLayout name='Register' footer='Login'>
       <InputForm name='name' placeholder='input your name is here...' type='full-name'>
         Username
       </InputForm>
@@ -13,7 +13,7 @@ function RegisterForm() {
       <InputForm name='password' placeholder='*******' type='password'>
         Password
       </InputForm>
-      <InputForm name='password' placeholder='*******' type='password'>
+      <InputForm name='confirmpassword' placeholder='*******' type='password'>
         Confirm Password
       </InputForm>
     </FormLayout>
