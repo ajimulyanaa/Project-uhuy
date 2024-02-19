@@ -2,13 +2,13 @@ import Button from '../../Elements/Button';
 
 // eslint-disable-next-line react/prop-types
 const CardProduct = ({ children }) => {
-  return <div className='w-full max-w-xs border-2 border-slate-700 p-5 bg-slate-600 rounded-lg'>{children}</div>;
+  return <div className='w-full max-w-xs h-2/3 border-2 border-slate-700 p-5 bg-slate-600 rounded-lg m-5 flex flex-col justify-evenly'>{children}</div>;
 };
 
 // eslint-disable-next-line react/prop-types
 const Header = ({ image, desc }) => {
   return (
-    <a href=''>
+    <a href='' className='h-full'>
       <img src={image} alt={desc} />
     </a>
   );
@@ -17,7 +17,7 @@ const Header = ({ image, desc }) => {
 // eslint-disable-next-line react/prop-types
 const Body = ({ title, children }) => {
   return (
-    <div className='py-4'>
+    <div className='py-4 h-full min-h-full'>
       <h4 className='font-bold text-2xl'>{title}</h4>
       <p>{children}</p>
     </div>
@@ -27,7 +27,7 @@ const Body = ({ title, children }) => {
 // eslint-disable-next-line react/prop-types
 const Footer = ({ children }) => {
   return (
-    <div className='flex justify-between items-center'>
+    <div className='flex justify-between items-center h-full'>
       <h5 className='font-semibold text-xl'>Rp {children}</h5>
       <Button style='bg-orange-500 px-5'>Add To Cart</Button>
     </div>
