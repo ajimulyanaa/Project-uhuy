@@ -1,5 +1,6 @@
 import Button from '../Component/Elements/Button';
 import CardProduct from '../Component/Fragments/cardProduct';
+import { useState } from 'react';
 
 // rendenring list
 
@@ -28,6 +29,7 @@ const products = [
 const email = localStorage.getItem('Email');
 
 // eslint-disable-next-line react/prop-types
+// ============================
 const ProductsList = () => {
   // handler quit
   const quit = () => {
@@ -35,6 +37,23 @@ const ProductsList = () => {
     localStorage.removeItem('Email'), localStorage.removeItem('Password');
     // direct halaman
     window.location.href = '/Login';
+  };
+  // use state
+  const [cart, setCart] = useState([
+    {
+      name: 'sandal',
+      qty: 1,
+    },
+  ]);
+  // handler state
+  const handlerCart = (product) => {
+    setCart([
+      ...cart,
+      {
+        name: product,
+        qty: 1,
+      },
+    ]);
   };
   return (
     <div className=''>
@@ -44,12 +63,18 @@ const ProductsList = () => {
           Quit
         </Button>
       </header>
+      <div className='bg-blue-400'>
+        <h1>Cart</h1>
+        {cart.map((products) => (
+          <p key={products.name}>{products.name}</p>
+        ))}
+      </div>
       <div className='flex justify-center'>
         {products.map((product) => (
           <CardProduct key={product.name}>
             <CardProduct.Header image={product.image} desc={product.name}></CardProduct.Header>
             <CardProduct.Body title={product.name}>{product.desc}</CardProduct.Body>
-            <CardProduct.Footer>{product.price}</CardProduct.Footer>
+            <CardProduct.Footer handler={() => handlerCart(product.name)}>{product.price}</CardProduct.Footer>
           </CardProduct>
         ))}
       </div>
