@@ -15,13 +15,13 @@ const products = [
     image: '/productImages/9899431.jpg',
     name: 'Sepatu nike',
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,',
-    price: '200000',
+    price: '220000',
   },
   {
     image: '/productImages/9899431.jpg',
     name: 'Sepatu adidas',
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,aslfkksdmfkdfjdkfml,.;dslfpdf',
-    price: '200000',
+    price: '250000',
   },
 ];
 
@@ -41,7 +41,7 @@ const ProductsList = () => {
   // use state
   const [cart, setCart] = useState([
     {
-      name: 'sandal',
+      name: 'Sepatu',
       qty: 1,
     },
   ]);
@@ -65,9 +65,29 @@ const ProductsList = () => {
       </header>
       <div className='bg-blue-400'>
         <h1>Cart</h1>
-        {cart.map((products) => (
-          <p key={products.name}>{products.name}</p>
-        ))}
+        <table>
+          <thead>
+            <tr>
+              <th>Nama Product</th>
+              <th>Harga</th>
+              <th>Jumlah</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cart.map((item) => {
+              const product = products.find((product) => product.name == item.name);
+              return (
+                <tr key={product.name}>
+                  <td>{product.name}</td>
+                  <td>{product.price}</td>
+                  <td>{item.qty}</td>
+                  <td>{product.price}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
       <div className='flex justify-center'>
         {products.map((product) => (
